@@ -1,0 +1,33 @@
+# Subject (50 chars) #############################
+# If applied, this commit will <type>(optional scope): <description>
+
+# Body (72 chars) ######################################################
+# Section 1 - What has changed?
+
+# Section 2 - Why has this been changed?
+
+# Section 3 - Additional notes
+
+# Section 4 - Trailers
+# Co-authored-by: Name <name@example.com>
+# See: https://example.com
+# See: Description <https://example.com>
+
+#Section 5 - Conventional Commit Notes
+#More information: https://www.conventionalcommits.org/en/v1.0.0/
+#types:
+#    - fix: A bug Fix
+#    - feat: A new feature
+#    - build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+#    - chore: Other changes that don't modify src or test files
+#    - ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+#    - docs: Documentation only changes
+#    - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+#    - refactor: A code change that neither fixes a bug nor adds a feature
+#    - perf: A code change that improves performance
+#    - test: Adding missing tests or correcting existing tests
+#    - revert: Reverts a previous commit
+#
+
+#optional footers:
+#    - BREAKING CHANGE: <description>

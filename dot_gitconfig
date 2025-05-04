@@ -1,0 +1,60 @@
+[user]
+	name = therealvio
+	email = 41095688+therealvio@users.noreply.github.com
+
+#Reference workplace dir, and insert bespoke .gitconfig file
+[includeIf "gitdir:~/Documents/source/_<WORKPLACE>/"]
+	path = .gitconfig-<WORKPLACE>
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = code --wait
+
+[commit]
+template = ~/.gitmessage
+verbose = true
+
+[diff]
+	colorMoved = zebra
+
+[fetch]
+	prune = true
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[alias]
+	fp = !git fetch && git pull
+	amend = commit --amend --no-edit
+	br = branch
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	d = diff
+	dc = diff --cached
+	lg = log --all --oneline --graph --pretty=format:\"%C(yellow)%h %Cgreen%ad %Cblue%an%Cred%d %Creset%s\" --date=format:\"%d %b %H:%M\"
+	rb = rebase
+	sh = show
+	st = status --short --branch
+	sw = switch
+	mnff = merge --no-ff
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[http]
+	postBuffer = 50M
