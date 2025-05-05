@@ -29,13 +29,19 @@ config.color_scheme = scheme_for_appearance(get_appearance())
 config.font = wezterm.font("Fira Code")
 config.font_size = 14.0
 
--- Keybindings
+-- Keybinds
 config.keys = {
-	{ mods = "OPT", key = "LeftArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "b" }) },
-	{ mods = "OPT", key = "RightArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "f" }) },
-	{ mods = "CMD", key = "LeftArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "a" }) },
-	{ mods = "CMD", key = "RightArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "e" }) },
-	{ mods = "CMD", key = "Backspace", action = wezterm.action.SendKey({ mods = "CTRL", key = "u" }) },
+    -- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
+    {
+        key = 'LeftArrow',
+        mods = 'OPT',
+        action = wezterm.action{SendString="\x1bb"},
+    },
+    {
+        key = 'RightArrow',
+        mods = 'OPT',
+        action = wezterm.action{SendString="\x1bf"},
+    },
 }
 
 -- Finally, return the configuration
