@@ -1,6 +1,2 @@
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Configure mise shims
-# https://mise.jdx.dev/ide-integration.html#adding-shims-to-path-default-shell
-eval "$(mise activate zsh --shims)"
