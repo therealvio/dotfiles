@@ -1,0 +1,5 @@
+{{- if eq .workDevice true }}
+//npm.pkg.github.com/:_authToken={{ onepasswordRead "op://Employee/npm-feed-pat/password" }}
+@{{ .workPlace }}:registry=https://npm.pkg.github.com/
+{{- end }}
+registry=https://registry.npmjs.org/
