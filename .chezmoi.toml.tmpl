@@ -1,3 +1,8 @@
+{{- $workEmail := promptStringOnce . "workEmail" "Work email address" -}}
+
 [edit]
     command = "code"
     args = ["--wait"]
+
+[data]
+    workEmail = {{ $workEmail | quote }}
