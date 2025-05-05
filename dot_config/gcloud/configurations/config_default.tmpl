@@ -1,0 +1,6 @@
+[core]
+{{- if eq .workDevice true }}
+custom_ca_certs_file = /Users/{{ .chezmoi.username }}/dev/keys/netskope_bundle.pem
+{{- end }}
+account = {{ .workEmail }}
+
