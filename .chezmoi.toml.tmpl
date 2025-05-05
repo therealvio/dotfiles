@@ -1,8 +1,12 @@
+{{- $workDevice := promptBoolOnce . "workDevice" "Is this a work device" -}}
 {{- $workEmail := promptStringOnce . "workEmail" "Work email address" -}}
+{{- $workPlace := promptStringOnce . "workplace" "Workplace name" -}}
 
 [edit]
     command = "code"
     args = ["--wait"]
 
 [data]
+    workDevice = {{ $workDevice }}
     workEmail = {{ $workEmail | quote }}
+    workPlace = {{ $workPlace | quote }}
