@@ -2,9 +2,11 @@
 	name = therealvio
 	email = 41095688+therealvio@users.noreply.github.com
 
+{{- if eq .workDevice true }}
 #Reference workplace dir, and insert bespoke .gitconfig file
 [includeIf "gitdir:~/Documents/source/_{{ .workPlace }}/"]
 	path = .gitconfig-work
+{{- end }}
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
