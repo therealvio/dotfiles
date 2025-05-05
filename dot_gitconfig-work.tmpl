@@ -1,0 +1,5 @@
+[user]
+{{- if eq .workDevice true }}
+		name = {{ .governmentName }}
+		email = {{ .workEmail }}
+{{- end }}

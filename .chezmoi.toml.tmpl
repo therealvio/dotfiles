@@ -1,3 +1,12 @@
 [edit]
     command = "code"
     args = ["--wait"]
+
+[data]
+    workDevice = {{ $workDevice }}
+    {{- if eq $workDevice true }}
+        {{- $governmentName := promptStringOnce . "governmentName" "Government Name" -}}
+        {{- $workEmail := promptStringOnce . "workEmail" "Work email address" -}}
+        governmentName = {{ $governmentName | quote }}
+        workEmail = {{ $workEmail | quote }}
+    {{- end }}
