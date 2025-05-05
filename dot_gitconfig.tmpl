@@ -3,8 +3,8 @@
 	email = 41095688+therealvio@users.noreply.github.com
 
 #Reference workplace dir, and insert bespoke .gitconfig file
-[includeIf "gitdir:~/Documents/source/_<WORKPLACE>/"]
-	path = .gitconfig-<WORKPLACE>
+[includeIf "gitdir:~/Documents/source/_{{ .workPlace }}/"]
+	path = .gitconfig-work
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
