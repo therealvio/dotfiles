@@ -125,9 +125,6 @@ eval "$(starship init zsh)"
 PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Mise
-eval "$(~/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
