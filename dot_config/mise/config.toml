@@ -1,2 +1,6 @@
 [tools]
-usage = "latest"
+gcloud = "latest"
+golangci-lint = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = []
