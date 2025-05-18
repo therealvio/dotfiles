@@ -3,6 +3,14 @@ Host github.com
   IdentityFile ~/.ssh/therealvio-github
   User therealvio
 
+Host 10.10.100.253
+  IdentityFile ~/.ssh/pi-hole
+  User vio
+
+Host pihole.glizzy
+  IdentityFile ~/.ssh/pi-hole
+  User vio
+
 Host *
   ServerAliveInterval 120
   ServerAliveCountMax 5
