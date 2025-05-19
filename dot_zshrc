@@ -128,3 +128,7 @@ PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 
 # Mise
 eval "$(mise activate zsh)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
