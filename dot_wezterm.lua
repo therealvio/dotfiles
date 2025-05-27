@@ -44,5 +44,8 @@ config.keys = {
     },
 }
 
+-- Misc settings
+config.window_close_confirmation = 'NeverPrompt' -- Disable close confirmation
+
 -- Finally, return the configuration
 return config
