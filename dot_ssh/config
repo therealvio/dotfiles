@@ -3,12 +3,12 @@ Host github.com
   IdentityFile ~/.ssh/therealvio-github
   User therealvio
 
-Host 10.10.100.253
-  IdentityFile ~/.ssh/pi-hole
+Host 10.10.0.2
+  IdentityFile ~/.ssh/pi-server
   User vio
 
-Host pihole.glizzy
-  IdentityFile ~/.ssh/pi-hole
+Host piserver.glizzy
+  IdentityFile ~/.ssh/pi-server
   User vio
 
 Host *
