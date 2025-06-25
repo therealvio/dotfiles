@@ -12,5 +12,9 @@
   "features": {
     "hooks": "true"
   },
-  "currentContext": "rancher-desktop"
+  "currentContext": "rancher-desktop",
+  "credHelpers": {
+    "public.ecr.aws": "ecr-login",
+    "226140413739.dkr.ecr.us-west-2.amazonaws.com": "ecr-login"
+  }
 }
