@@ -1,4 +1,5 @@
 {{- $workDevice := promptBoolOnce . "workDevice" "Is this a work device" -}}
+{{- $privateEcrRegistry := promptStringOnce . "privateEcrRegistry" "Personal Private ECR registry URL:" -}}
 
 [edit]
     command = "code"
@@ -10,7 +11,10 @@
         {{- $governmentName := promptStringOnce . "governmentName" "Government Name" -}}
         {{- $workEmail := promptStringOnce . "workEmail" "Work email address" -}}
         {{- $workPlace := promptStringOnce . "workplace" "Workplace name" -}}
+        {{- $workPrivateEcrRegistry := promptStringOnce . "workPrivateEcrRegistry" "Workplace Private ECR registry URL:" -}}
         governmentName = {{ $governmentName | quote }}
         workEmail = {{ $workEmail | quote }}
         workPlace = {{ $workPlace | quote }}
+        workPrivateEcrRegistry = {{ $workPrivateEcrRegistry | quote }}
     {{- end }}
+    privateEcrRegistry = {{ $privateEcrRegistry | quote }}

@@ -1,0 +1,24 @@
+{
+  "auths": {},
+  "credsStore": "osxkeychain",
+  "plugins": {
+    "debug": {
+      "hooks": "exec"
+    },
+    "scout": {
+      "hooks": "pull,buildx build"
+    }
+  },
+  "features": {
+    "hooks": "true"
+  },
+  "credHelpers": {
+    "public.ecr.aws": "ecr-login",
+    {{- if eq .workDevice true }}
+    {{ .workPrivateEcrRegistry }}: "ecr-login"
+    {{- end }}
+    {{- if .privateEcrRegistry }}
+    {{ .privateEcrRegistry }}: "ecr-login"
+    {{- end }}
+  }
+}
