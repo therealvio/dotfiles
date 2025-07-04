@@ -29,6 +29,10 @@ config.color_scheme = scheme_for_appearance(get_appearance())
 config.font = wezterm.font("Fira Code")
 config.font_size = 14.0
 
+-- Set window size
+config.initial_rows = 30
+config.initial_cols = 100
+
 -- Keybinds
 config.keys = {
     -- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
