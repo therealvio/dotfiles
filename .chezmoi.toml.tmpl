@@ -10,7 +10,7 @@
 {{- if eq $workDevice true }}
 {{- $governmentName := promptStringOnce . "governmentName" "Government Name" -}}
 {{- $workEmail := promptStringOnce . "workEmail" "Work email address" -}}
-{{- $workPlace := promptStringOnce . "workplace" "Workplace name" -}}
+{{- $workPlace := promptStringOnce . "workPlace" "Workplace name" -}}
 {{- $workPrivateEcrRegistry := promptStringOnce . "workPrivateEcrRegistry" "Workplace Private ECR registry URL" }}
     governmentName = {{ $governmentName | quote }}
     workEmail = {{ $workEmail | quote }}
