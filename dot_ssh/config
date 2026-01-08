@@ -7,7 +7,7 @@ Host 10.10.0.2
   IdentityFile ~/.ssh/pi-server
   User vio
 
-Host piserver.glizzy
+Host piserver
   IdentityFile ~/.ssh/pi-server
   User vio
 
