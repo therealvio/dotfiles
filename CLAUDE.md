@@ -1,9 +1,15 @@
-# AGENTS.md
+# CLAUDE.md
+
+This is a personal dotfiles repository managed by [chezmoi](https://www.chezmoi.io/). It contains configuration files, shell setup, git config, and tool configs for a macOS development environment.
+
+## Tooling
+
+- Use ripgrep (command: rg) to perform code searching
 
 ## Build, Test, and Lint Commands
 - This repository does not contain build, test, or lint commands. It is a dotfiles/config management repo maintained by [chezmoi](https://www.chezmoi.io/quick-start/).
 - To apply changes, use `chezmoi apply`.
-- For template rendering, use `chezmoi template`.
+- For template rendering, use `chezmoi execute-template`.
 
 ## High-Level Architecture
 - All configuration files (dotfiles) are managed and templated by chezmoi.
@@ -21,9 +27,9 @@
 
 ## Context7 MCP
 
-Always use Context7 MCP when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+Always use Context7 MCP for library/API documentation, code generation, and setup or configuration steps without being explicitly asked.
 
-Use the following librarys for Context7:
+Use the following libraries for Context7:
 
 - /twpayne/chezmoi
 - /websites/chezmoi_io
