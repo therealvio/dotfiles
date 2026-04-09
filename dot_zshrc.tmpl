@@ -118,6 +118,13 @@ export PATH="/usr/local/sbin:$PATH"
 # Ignore History using whitespace prefixes
 setopt HIST_IGNORE_SPACE
 
+# Fuck them dupes
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+
 # Startship!!! https://starship.rs/guide/#%F0%9F%9A%80-installation
 eval "$(starship init zsh)"
 
