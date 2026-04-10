@@ -136,18 +136,13 @@ PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 # Mise
 eval "$(mise activate zsh)"
 
+# zoxide
+eval "$(zoxide init zsh)"
+alias cd='z'
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Add .local bin to PATH for user-installed binaries
 export PATH="$HOME/.local/bin:$PATH"
-
-{{- if .workDevice }}
-
-# Devbox
-eval "$(devbox global shellenv)"
-
-# The next line was added by hotel, leave it at the bottom of this file
-source {{ .chezmoi.homeDir }}/.config/hotel/config.zsh
-{{- end }}
