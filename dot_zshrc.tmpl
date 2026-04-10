@@ -140,6 +140,10 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 alias cd='z'
 
+# fzf
+# Need this for zoxide's "zi" command
+source <(fzf --zsh)
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
