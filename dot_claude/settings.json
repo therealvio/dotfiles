@@ -76,5 +76,9 @@
         "opentelemetry.io"
       ]
     }
+  },
+  "statusLine": {
+    "command": "~/.claude/statusline.sh",
+    "type": "command"
   }
 }
