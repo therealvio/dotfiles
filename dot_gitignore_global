@@ -46,3 +46,7 @@ Thumbs.db
 # Mise VSCode when set to use symlinks will create files in the workspace folder. We don't need to
 # commit this, and can re-pull each time.
 .vscode/mise-tools/*
+
+# Claude #
+######################
+.claude/settings.local.json
