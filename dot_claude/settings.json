@@ -1,32 +1,80 @@
 {
-  "model": "sonnet",
   "env": {
-    "MAX_THINKING_TOKENS": "10000",
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "haiku"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "haiku",
+    "MAX_THINKING_TOKENS": "10000"
   },
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Read",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/read-once/hook.sh"
-          }
-        ]
-      }
-    ],
     "PostCompact": [
       {
-        "matcher": "",
         "hooks": [
           {
-            "type": "command",
-            "command": "~/.claude/read-once/compact.sh"
+            "command": "~/.claude/read-once/compact.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "~/.claude/read-once/hook.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "Read"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "mkdir -p /tmp/claude/zsh && echo 'export TMPPREFIX=/tmp/claude/zsh' >> \"$CLAUDE_ENV_FILE\"",
+            "type": "command"
           }
         ]
       }
     ]
+  },
+  "model": "sonnet",
+  "permissions": {
+    "allow": [
+      "Edit(~/go/pkg)",
+      "Edit(~/.gradle/)",
+      "Edit(~/.npm/)",
+      "Edit(~/Library/Caches/go-build)",
+      "Edit(~/Library/Caches/golangci-lint)",
+      "Edit(~/.cache/)",
+      "Edit(~/.local/state/mise/)",
+      "Edit(~/.local/share/direnv/)",
+      "Edit(~/Library/Caches/)",
+      "Edit(/Users/brew/Library/Caches/)"
+    ]
+  },
+  "sandbox": {
+    "allowUnsandboxedCommands": false,
+    "autoAllowBashIfSandboxed": true,
+    "enableWeakerNetworkIsolation": true,
+    "network": {
+      "allowLocalBinding": true,
+      "allowUnixSockets": [
+        "/nix/var/nix/daemon-socket/socket",
+        "/tmp/claude/tsx-*"
+      ],
+      "allowedDomains": [
+        "registry.npmjs.org",
+        "proxy.golang.org",
+        "sum.golang.org",
+        "storage.googleapis.com",
+        "github.com",
+        "api.github.com",
+        "raw.githubusercontent.com",
+        "buildkite.com",
+        "api.buildkite.com",
+        "opentelemetry.io"
+      ]
+    }
   }
 }
