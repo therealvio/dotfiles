@@ -60,7 +60,9 @@
     "network": {
       "allowLocalBinding": true,
       "allowUnixSockets": [
+        {{ if .chezmoi.config.data.workDevice -}}
         "/nix/var/nix/daemon-socket/socket",
+        {{ end -}}
         "/tmp/claude/tsx-*"
       ],
       "allowedDomains": [
@@ -71,9 +73,11 @@
         "github.com",
         "api.github.com",
         "raw.githubusercontent.com",
+        "opentelemetry.io",
+        {{ if .chezmoi.config.data.workDevice -}}
         "buildkite.com",
-        "api.buildkite.com",
-        "opentelemetry.io"
+        "api.buildkite.com"
+        {{ end -}}
       ]
     }
   },
