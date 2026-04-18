@@ -13,12 +13,12 @@
     "hooks": "true"
   },
   "credHelpers": {
-    "public.ecr.aws": "ecr-login",
     {{- if eq .workDevice true }}
-    {{ .workPrivateEcrRegistry }}: "ecr-login"
+    {{ .workPrivateEcrRegistry }}: "ecr-login",
     {{- end }}
     {{- if .privateEcrRegistry }}
-    {{ .privateEcrRegistry }}: "ecr-login"
+    {{ .privateEcrRegistry }}: "ecr-login",
     {{- end }}
+    "public.ecr.aws": "ecr-login"
   }
 }
