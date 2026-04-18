@@ -35,3 +35,4 @@ Use the following libraries for Context7:
 - /wezterm/wezterm
 - /websites/chezmoi_io
 - /websites/wezterm
+- /rothgar/mastering-zsh
