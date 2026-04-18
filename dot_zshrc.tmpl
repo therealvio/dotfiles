@@ -150,3 +150,26 @@ export PATH="$HOME/.rd/bin:$PATH"
 
 # Add .local bin to PATH for user-installed binaries
 export PATH="$HOME/.local/bin:$PATH"
+
+# Auto-register cloned repos anywhere under ~/Documents/source with zoxide
+function git() {
+    command git "$@"
+    if [[ "$1" == "clone" ]]; then
+        local url="" explicit_dir="" clone_dir
+        for arg in "${@[2,-1]}"; do
+            if [[ "$arg" != -* ]]; then
+                [[ -z "$url" ]] && url="$arg" || explicit_dir="$arg"
+            fi
+        done
+        if [[ -n "$explicit_dir" ]]; then
+            clone_dir="$explicit_dir"
+        else
+            clone_dir="${url%.git}"
+            clone_dir="${clone_dir##*/}"
+        fi
+        [[ "$clone_dir" != /* ]] && clone_dir="$PWD/$clone_dir"
+        if [[ "$clone_dir" == "$HOME/Documents/source/"* ]] && [[ -d "$clone_dir" ]]; then
+            zoxide add "$clone_dir"
+        fi
+    fi
+}
