@@ -152,6 +152,14 @@ export PATH="$HOME/.rd/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Auto-register cloned repos anywhere under ~/Documents/source with zoxide
+function _zoxide_add_if_source() {
+    local clone_dir="$1"
+    [[ "$clone_dir" != /* ]] && clone_dir="$PWD/$clone_dir"
+    if [[ "$clone_dir" == "$HOME/Documents/source/"* ]] && [[ -d "$clone_dir" ]]; then
+        zoxide add "$clone_dir"
+    fi
+}
+
 function git() {
     command git "$@"
     if [[ "$1" == "clone" ]]; then
@@ -167,9 +175,27 @@ function git() {
             clone_dir="${url%.git}"
             clone_dir="${clone_dir##*/}"
         fi
-        [[ "$clone_dir" != /* ]] && clone_dir="$PWD/$clone_dir"
-        if [[ "$clone_dir" == "$HOME/Documents/source/"* ]] && [[ -d "$clone_dir" ]]; then
-            zoxide add "$clone_dir"
+        _zoxide_add_if_source "$clone_dir"
+    fi
+}
+
+function gh() {
+    command gh "$@"
+    if [[ "$1" == "repo" && "$2" == "clone" ]]; then
+        local repo="" explicit_dir="" clone_dir past_separator=0
+        for arg in "${@[3,-1]}"; do
+            [[ "$arg" == "--" ]] && past_separator=1 && continue
+            (( past_separator )) && continue
+            if [[ "$arg" != -* ]]; then
+                [[ -z "$repo" ]] && repo="$arg" || explicit_dir="$arg"
+            fi
+        done
+        if [[ -n "$explicit_dir" ]]; then
+            clone_dir="$explicit_dir"
+        else
+            clone_dir="${repo##*/}"
+            clone_dir="${clone_dir%.git}"
         fi
+        _zoxide_add_if_source "$clone_dir"
     fi
 }
