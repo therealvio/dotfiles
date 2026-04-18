@@ -32,4 +32,6 @@ Always use Context7 MCP for library/API documentation, code generation, and setu
 Use the following libraries for Context7:
 
 - /twpayne/chezmoi
+- /wezterm/wezterm
 - /websites/chezmoi_io
+- /websites/wezterm
