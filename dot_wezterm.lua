@@ -34,18 +34,14 @@ config.initial_rows = 30
 config.initial_cols = 100
 
 -- Keybinds
+local act = wezterm.action
 config.keys = {
-    -- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
-    {
-        key = 'LeftArrow',
-        mods = 'OPT',
-        action = wezterm.action{SendString="\x1bb"},
-    },
-    {
-        key = 'RightArrow',
-        mods = 'OPT',
-        action = wezterm.action{SendString="\x1bf"},
-    },
+    -- OPT-Left/Right: skip words (ALT-b / ALT-f)
+    { key = 'LeftArrow',  mods = 'OPT', action = act.SendString '\x1bb' },
+    { key = 'RightArrow', mods = 'OPT', action = act.SendString '\x1bf' },
+    -- CMD-Left/Right: beginning / end of line (Ctrl-A / Ctrl-E)
+    { key = 'LeftArrow',  mods = 'CMD', action = act.SendString '\x01' },
+    { key = 'RightArrow', mods = 'CMD', action = act.SendString '\x05' },
 }
 
 -- Misc settings
