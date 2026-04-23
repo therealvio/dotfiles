@@ -199,3 +199,11 @@ function gh() {
         _zoxide_add_if_source "$clone_dir"
     fi
 }
+
+{{ if .workDevice -}}
+# Devbox
+eval "$(devbox global shellenv)"
+
+# The next line was added by hotel, leave it at the bottom of this file
+source /Users/{{ .chezmoi.username }}/.config/hotel/config.zsh
+{{ end -}}
