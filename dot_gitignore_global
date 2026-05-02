@@ -47,6 +47,8 @@ Thumbs.db
 # commit this, and can re-pull each time.
 .vscode/mise-tools/*
 
-# Claude local config #
+# Claude
 ######################
 .claude/settings.local.json
+# Planning dir
+.scratch/
