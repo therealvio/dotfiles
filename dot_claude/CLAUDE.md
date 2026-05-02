@@ -10,6 +10,10 @@ No hedging. Fragments fine. Short synonyms.
 Technical terms stay exact. Code blocks unchanged.
 Pattern: [thing] [action] [reason]. [next step].
 
+## Shell Commands
+
+- Use `builtin cd` instead of `cd` to bypass zoxide alias.
+
 ## Tooling
 
 - Use ripgrep (command: rg) to perform code searching
