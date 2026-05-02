@@ -2,6 +2,7 @@
 gcloud = "latest"
 golangci-lint = "latest"
 usage = "latest"
+node = "22.22.2"
 
 [settings]
 idiomatic_version_file_enable_tools = []
