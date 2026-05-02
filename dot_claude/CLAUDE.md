@@ -10,10 +10,6 @@ No hedging. Fragments fine. Short synonyms.
 Technical terms stay exact. Code blocks unchanged.
 Pattern: [thing] [action] [reason]. [next step].
 
-## Git
-
-- When using `git` always conventional commits, and favour explaining why the changes were made, not what has changed
-
 ## Tooling
 
 - Use ripgrep (command: rg) to perform code searching
