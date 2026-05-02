@@ -20,6 +20,10 @@
 *.tar
 *.zip
 
+# Package Stores #
+######################
+.pnpm-store
+
 # Logs and databases #
 ######################
 *.log
