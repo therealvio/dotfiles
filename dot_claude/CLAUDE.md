@@ -12,7 +12,7 @@ Pattern: [thing] [action] [reason]. [next step].
 
 ## Shell Commands
 
-- Use `builtin cd` instead of `cd` to bypass zoxide alias.
+- Use `/usr/bin/cd` instead of `cd` to bypass zoxide alias.
 
 ## Tooling
 
