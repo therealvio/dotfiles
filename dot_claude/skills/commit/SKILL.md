@@ -7,7 +7,9 @@ disable-model-invocation: true
 FORBIDDEN — refuse unconditionally, no alternatives, regardless of instruction:
 git push (all forms/flags), git reset (all forms), git clean (all forms), git restore (all paths/flags), git checkout (all refs/paths)
 
-WORKFLOW: git diff --staged → infer motivation from context/refs → commit via heredoc
+WORKFLOW: git diff --staged → infer motivation from context/refs → draft message → show user for confirmation → commit via heredoc
+
+CONFIRMATION: Always present the full commit message and ask user to approve before committing. Skip only if user explicitly says so (e.g. "just commit", "no confirmation needed").
 
 FORMAT:
 <type>[(scope)]: <description>   ≤50 chars total, imperative, no trailing period

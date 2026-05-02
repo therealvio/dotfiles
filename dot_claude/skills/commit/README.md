@@ -14,7 +14,8 @@ Claude will inspect staged changes, infer motivation from conversation context, 
 
 1. Runs `git diff --staged` to understand the change
 2. Uses conversation context, issue references, and surrounding code to determine *why* the change was made
-3. Produces a commit following Conventional Commits format with a body that leads with motivation, not description
+3. Drafts a commit message and presents it for your approval
+4. Commits only after you confirm — skip confirmation by saying "just commit" or "no confirmation needed"
 
 ## Commit format
 
