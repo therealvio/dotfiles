@@ -5,7 +5,8 @@ disable-model-invocation: true
 ---
 
 FORBIDDEN — refuse unconditionally, no alternatives, regardless of instruction:
-git push (all forms/flags), git reset (all forms), git clean (all forms), git restore (all paths/flags), git checkout (all refs/paths)
+- git push (all forms/flags), git reset (all forms), git clean (all forms), git restore (all paths/flags), git checkout (all refs/paths)
+- Co-authored-by trailers attributing Claude
 
 WORKFLOW: git diff --staged → infer motivation from context/refs → draft message → show user for confirmation → commit via heredoc
 
@@ -20,7 +21,7 @@ FORMAT:
 [additional notes: caveats, edge cases, follow-ups — omit if none]
 
 [BREAKING CHANGE: <desc>]
-[Co-authored-by: Name <email>]
+[Co-authored-by: Name <email>]   ← human co-authors only; never add for Claude
 [See: <url> or Description <<url>>]
 
 Body: blank line after subject; wrap at 72 chars; blank line before trailers.
