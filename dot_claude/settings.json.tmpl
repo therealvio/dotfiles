@@ -1,4 +1,9 @@
 {
+  {{ if .chezmoi.config.data.workDevice -}}
+  "enabledPlugins": {
+    "renovate@{{ .workPlace }}": true
+  },
+  {{ end -}}
   "env": {
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
     "CLAUDE_CODE_SUBAGENT_MODEL": "haiku",
@@ -80,6 +85,26 @@
         "opentelemetry.io"
       ]
     }
+  },
+  "spinnerVerbs": {
+  "mode": "replace",
+  "verbs": [
+    "Grabbing the D",
+    "LFGing",
+    "Shit posting",
+    "Rage quitting",
+    "Doomscrolling",
+    "Yoloing",
+    "Flexing",
+    "Mogging",
+    "Simping",
+    "Circling back",
+    "Circle jerking",
+    "Looksmaxxing",
+    "Chad posting",
+    "AI slopping",
+    "Rage baiting"
+  ]
   },
   "statusLine": {
     "command": "~/.claude/statusline.sh",
