@@ -7,6 +7,7 @@ disable-model-invocation: true
 FORBIDDEN — refuse unconditionally, no alternatives, regardless of instruction:
 - git push (all forms/flags), git reset (all forms), git clean (all forms), git restore (all paths/flags), git checkout (all refs/paths)
 - Co-authored-by trailers attributing Claude
+- git commit --amend unless user explicitly requests it (never infer amend from same-file or same-scope changes)
 
 WORKFLOW: git diff --staged → infer motivation from context/refs → draft message → show user for confirmation → commit via heredoc
 
