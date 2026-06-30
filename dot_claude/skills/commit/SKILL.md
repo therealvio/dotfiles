@@ -9,7 +9,9 @@ FORBIDDEN — refuse unconditionally, no alternatives, regardless of instruction
 - Co-authored-by trailers attributing Claude
 - git commit --amend unless user explicitly requests it (never infer amend from same-file or same-scope changes)
 
-WORKFLOW: git diff --staged → infer motivation from context/refs → draft message → show user for confirmation → commit via heredoc
+WORKFLOW: git diff --staged → ask for context if none given → infer motivation → draft message → confirm → commit via heredoc (never propose --amend without explicit user request)
+
+CONTEXT: If user hasn't explained why the change was made, ask once before drafting: "Why were these changes made?" User may skip (e.g. "skip", "just commit", "no reason") — proceed without body context. No ticket required; plain explanation of motivation is enough.
 
 CONFIRMATION: Always present the full commit message and ask user to approve before committing. Skip only if user explicitly says so (e.g. "just commit", "no confirmation needed").
 
