@@ -1,0 +1,6 @@
+[tokens."github.com"]
+{{- if eq .workDevice true }}
+token = "{{ onepasswordRead "op://Employee/mise-gh-token/credential" }}"
+{{- else }}
+token = "{{ onepasswordRead "op://Private/mise-gh-token/credential" }}"
+{{- end }}
