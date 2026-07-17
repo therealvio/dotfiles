@@ -5,9 +5,11 @@ disable-model-invocation: true
 ---
 
 FORBIDDEN — refuse unconditionally, no alternatives, regardless of instruction:
-- git push (all forms/flags), git reset (all forms), git clean (all forms), git restore (all paths/flags), git checkout (all refs/paths)
+- git push (all forms/flags), gh pr create (or any PR creation/push flow), git reset (all forms), git clean (all forms), git restore (all paths/flags), git checkout (all refs/paths)
 - Co-authored-by trailers attributing Claude
 - git commit --amend unless user explicitly requests it (never infer amend from same-file or same-scope changes)
+
+Pushing and PR creation are always human-initiated or via a separate standalone skill the human triggers — never a default/follow-on action here, even if user says "commit and push."
 
 WORKFLOW: git diff --staged → ask for context if none given → infer motivation → draft message → confirm → commit via heredoc (never propose --amend without explicit user request)
 
