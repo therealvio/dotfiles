@@ -57,3 +57,4 @@ Thumbs.db
 # Planning dir
 .scratch/
 .claude/tmp
+.claude/cc-writes
