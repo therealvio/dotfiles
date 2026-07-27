@@ -62,6 +62,13 @@
     "allowUnsandboxedCommands": false,
     "autoAllowBashIfSandboxed": true,
     "enableWeakerNetworkIsolation": true,
+    "filesystem": {
+      "denyRead": [
+        ".envrc.private",
+        "/Users/{{ .chezmoi.username }}/.ssh/**",
+        "/Users/{{ .chezmoi.username }}/.aws/**"
+      ]
+    },
     "network": {
       "allowLocalBinding": true,
       "allowUnixSockets": [
