@@ -1,0 +1,7 @@
+# Copy gitignored files so they're included in worktrees - no need to redownload deps e.t.c.
+[post-start]
+copy = "wt step copy-ignored"
+
+# This doesn't always need to get copied, this stuff is massive
+[step.copy-ignored]
+exclude = [".devbox/", ".devbox/**"]
