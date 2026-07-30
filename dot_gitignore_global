@@ -58,3 +58,5 @@ Thumbs.db
 .scratch/
 .claude/tmp
 .claude/cc-writes
+**/.claude/.cc-writes/
+**/.claude/tmp
