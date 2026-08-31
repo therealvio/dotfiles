@@ -9,6 +9,7 @@
     "CLAUDE_CODE_SUBAGENT_MODEL": "haiku",
     "MAX_THINKING_TOKENS": "10000"
   },
+  "disableRemoteControl": true,
   "hooks": {
     "PostCompact": [
       {
@@ -56,6 +57,18 @@
       "Edit(~/.local/share/direnv/)",
       "Edit(~/Library/Caches/)",
       "Edit(/Users/brew/Library/Caches/)"
+    ],
+    "deny": [
+      "CronCreate",
+      "CronCreate",
+      "CronDelete",
+      "CronDelete",
+      "CronList",
+      "CronList",
+      "NotebookEdit",
+      "PushNotification",
+      "RemoteTrigger",
+      "ScheduleWakeup"
     ]
   },
   "sandbox": {
