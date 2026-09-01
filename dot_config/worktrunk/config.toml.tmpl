@@ -1,3 +1,5 @@
+worktree-path = "/Users/{{ .chezmoi.username }}/.worktrees/{{ `{{ repo }}` }}/{{ `{{ branch | sanitize }}` }}"
+
 # Copy gitignored files so they're included in worktrees - no need to redownload deps e.t.c.
 [post-start]
 copy = "wt step copy-ignored"
