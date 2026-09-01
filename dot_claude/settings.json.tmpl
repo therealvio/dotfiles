@@ -88,6 +88,7 @@
         {{ if .chezmoi.config.data.workDevice -}}
         "/nix/var/nix/daemon-socket/socket",
         {{ end -}}
+        "/Users/{{ .chezmoi.username }}/Library/Application Support/node-terminal/sock/hook.sock",
         "/tmp/claude/tsx-*"
       ],
       "allowedDomains": [
