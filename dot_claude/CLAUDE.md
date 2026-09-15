@@ -30,3 +30,5 @@ Do not make changes on `main` or `master`. Create a worktree first with
 the `worktrunk:wt-switch-create` skill and do the work there. It re-roots
 the session into the worktree, which keeps file writes inside the
 sandbox. Never enter a worktree with a bare `cd`.
+
+@RTK.md
