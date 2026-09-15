@@ -201,7 +201,33 @@ function gh() {
 }
 
 # Worktrunk
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+# `wt shellenv` is not in v0.77; fall back to `wt config shell init` until it is.
+if command -v wt >/dev/null 2>&1; then
+    _wt_shell_init="$(command wt shellenv zsh 2>/dev/null || command wt config shell init zsh)"
+    eval "$_wt_shell_init"
+    unset _wt_shell_init
+fi
+
+# Fallback for plain `cd` into a worktree: `wt switch` already runs the same
+# check through the post-switch hook in ~/.config/worktrunk/config.toml.
+# Allows a worktree .envrc only when it is byte-identical to the already
+# allowed one in the main worktree, so it reuses trust that is already
+# granted and never extends it to unreviewed content.
+if command -v direnv >/dev/null 2>&1; then
+    _wt_direnv_autoallow() {
+        [[ -f .envrc ]] || return
+        direnv status 2>/dev/null | grep -q '^Found RC allowed 0$' && return
+
+        local main_worktree
+        main_worktree=$(git worktree list 2>/dev/null | head -1 | awk '{print $1}')
+        [[ -n "$main_worktree" && "$main_worktree" != "$PWD" ]] || return
+        [[ -f "$main_worktree/.envrc" ]] || return
+
+        cmp -s .envrc "$main_worktree/.envrc" && direnv allow .envrc
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook chpwd _wt_direnv_autoallow
+fi
 
 {{ if .workDevice -}}
 # Devbox

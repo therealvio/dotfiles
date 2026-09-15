@@ -1,4 +1,4 @@
-worktree-path = "~/.worktrees/{{ `{{ repo }}` }}/{{ `{{ branch | sanitize }}` }}"
+worktree-path = "~/.worktrees/{{ repo }}/{{ branch | sanitize }}"
 
 # Copy gitignored files so they're included in worktrees - no need to redownload deps e.t.c.
 [post-start]
@@ -7,3 +7,19 @@ copy = "wt step copy-ignored"
 # This doesn't always need to get copied, this stuff is massive
 [step.copy-ignored]
 exclude = [".devbox/", ".devbox/**", ".scratch/", ".scratch/**"]
+
+# Mirror direnv trust into the worktree, but only when its .envrc is
+# byte-identical to the already-allowed one in the main worktree. Trust the
+# user granted once is reused; unreviewed content never gets allowed.
+[post-switch]
+direnv-allow = """
+command -v direnv >/dev/null || exit 0
+[ -f .envrc ] || exit 0
+main=$(git worktree list | head -1 | awk '{print $1}')
+[ -n "$main" ] || exit 0
+[ "$main" != "$PWD" ] || exit 0
+[ -f "$main/.envrc" ] || exit 0
+if cmp -s .envrc "$main/.envrc"; then
+    direnv allow .envrc
+fi
+"""
