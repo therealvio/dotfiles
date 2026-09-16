@@ -1,9 +1,10 @@
 {
-  {{ if .chezmoi.config.data.workDevice -}}
   "enabledPlugins": {
-    "renovate@{{ .workPlace }}": true
+    {{ if .chezmoi.config.data.workDevice -}}
+    "renovate@{{ .workPlace }}": true,
+    {{ end -}}
+    "worktrunk@worktrunk": true
   },
-  {{ end -}}
   "env": {
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
     "CLAUDE_CODE_SUBAGENT_MODEL": "haiku",
