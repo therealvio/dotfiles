@@ -3,6 +3,7 @@
     {{ if .chezmoi.config.data.workDevice -}}
     "renovate@{{ .workPlace }}": true,
     {{ end -}}
+    "commit@jabroni-skills": true,
     "worktrunk@worktrunk": true
   },
   "env": {
@@ -11,6 +12,14 @@
     "MAX_THINKING_TOKENS": "10000"
   },
   "disableRemoteControl": true,
+  "extraKnownMarketplaces": {
+    "worktrunk": {
+      "source": {
+        "source": "github",
+        "repo": "max-sixty/worktrunk"
+      }
+    }
+  },
   "hooks": {
     "PostCompact": [
       {
