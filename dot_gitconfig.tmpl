@@ -52,13 +52,17 @@ verbose = true
 	st = status --short --branch
 	sw = switch
 	mnff = merge --no-ff
+
 [credential "https://github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
 [http]
 	postBuffer = 50M
+
 [url "https://github.com/Temikus/"]
         insteadOf = git@github.com:Temikus/
