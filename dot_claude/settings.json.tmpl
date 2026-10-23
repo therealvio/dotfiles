@@ -98,6 +98,10 @@
     "autoAllowBashIfSandboxed": true,
     "enableWeakerNetworkIsolation": true,
     "filesystem": {
+      "allowWrite": [
+        "**/.git/config",
+        "**/.git/config.lock"
+      ],
       "denyRead": [
         ".envrc.private",
         "/Users/{{ .chezmoi.username }}/.ssh/**",
