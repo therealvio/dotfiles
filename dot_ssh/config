@@ -11,6 +11,30 @@ Host piserver.glizzy
   IdentityFile ~/.ssh/pi-server
   User vio
 
+Host 10.10.0.3
+  IdentityFile ~/.ssh/nas-server
+  User vio
+
+Host nasty.glizzy
+  IdentityFile ~/.ssh/nas-server
+  User vio
+
+Host 10.10.0.4
+  IdentityFile ~/.ssh/proxmox01
+  User vio
+
+Host proxmox01.glizzy
+  IdentityFile ~/.ssh/proxmox01
+  User vio
+
+Host 10.10.0.5
+  IdentityFile ~/.ssh/herdr
+  User vio
+
+Host herdr.glizzy
+  IdentityFile ~/.ssh/herdr
+  User vio
+
 Host *
   ServerAliveInterval 120
   ServerAliveCountMax 5
