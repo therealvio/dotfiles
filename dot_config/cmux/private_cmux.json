@@ -8,6 +8,7 @@
   },
   "terminal": {
     "copyOnSelect": true,
+    "showCopyConfirmation": true,
     "agentHibernation": {
       "enabled": true,
       "idleSeconds": 300,
