@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+  "app": {
+    "appearance": "system",
+    "preferredEditor": "code",
+    "sendAnonymousTelemetry": false
+  },
+  "terminal": {
+    "copyOnSelect": true,
+    "agentHibernation": {
+      "enabled": true,
+      "idleSeconds": 300,
+      "maxLiveTerminals": 6
+    }
+  },
+  "browser": {
+    "openTerminalLinksInCmuxBrowser": false,
+    "interceptTerminalOpenCommandInCmuxBrowser": false
+  },
+  "sidebar": {
+    "openPortLinksInCmuxBrowser": false,
+    "openPullRequestLinksInCmuxBrowser": false
+  }
+}
