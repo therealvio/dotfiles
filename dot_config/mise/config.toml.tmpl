@@ -3,6 +3,9 @@ gcloud = "latest"
 golangci-lint = "latest"
 usage = "latest"
 node = "22.22.2"
+# Update RubyGems after each Ruby install. Otherwise gem asks for it on first use.
+ruby = { version = "3.3.14", postinstall = "gem update --system" }
+"gem:try-cli" = "1.10.1"
 {{- if eq .workDevice true }}
 "github:jamestelfer/imds-broker" = "0.4.0"
 "github:jamestelfer/sandy" = "0.7.0"
