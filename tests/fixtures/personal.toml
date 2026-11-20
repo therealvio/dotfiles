@@ -1,0 +1,3 @@
+[data]
+    workDevice = false
+    privateEcrRegistry = "222222222222.dkr.ecr.ap-southeast-2.amazonaws.com"

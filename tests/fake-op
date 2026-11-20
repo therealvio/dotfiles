@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Stand-in for the 1Password CLI. Template tests use it so that rendering
+# never reads a real secret or opens a 1Password prompt.
+set -euo pipefail
+
+# chezmoi can put global flags before the subcommand, so look at every argument.
+for arg in "$@"; do
+  case "$arg" in
+    --version) echo "2.30.0"; exit 0 ;;
+    read) printf 'fake-secret'; exit 0 ;;
+    account) echo "[]"; exit 0 ;;
+  esac
+done
+echo "{}"

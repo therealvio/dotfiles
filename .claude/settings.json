@@ -1,5 +1,20 @@
 {
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && just test-templates >&2 || exit 2",
+            "timeout": 60,
+            "statusMessage": "Rendering chezmoi templates"
+          }
+        ]
+      }
+    ]
   }
 }

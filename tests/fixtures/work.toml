@@ -1,0 +1,7 @@
+[data]
+    workDevice = true
+    governmentName = "Test User"
+    workEmail = "test.user@acme.example"
+    workPlace = "Acme"
+    workPrivateEcrRegistry = "111111111111.dkr.ecr.ap-southeast-2.amazonaws.com"
+    privateEcrRegistry = "222222222222.dkr.ecr.ap-southeast-2.amazonaws.com"
