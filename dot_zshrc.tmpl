@@ -145,6 +145,13 @@ alias cd='z'
 source <(fzf --zsh)
 
 # try: dated experiment dirs. Must come after mise activate.
+# Ctrl-G graduates a try into TRY_PROJECTS. That directory must already exist.
+export TRY_PATH="$HOME/tries"
+{{- if .workDevice }}
+export TRY_PROJECTS="$HOME/Documents/source/{{ .workPlace }}"
+{{- else }}
+export TRY_PROJECTS="$HOME/Documents/source"
+{{- end }}
 eval "$(try init)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
