@@ -14,10 +14,10 @@
   },
   "credHelpers": {
     {{- if eq .workDevice true }}
-    {{ .workPrivateEcrRegistry }}: "ecr-login",
+    {{ .workPrivateEcrRegistry | quote }}: "ecr-login",
     {{- end }}
     {{- if .privateEcrRegistry }}
-    {{ .privateEcrRegistry }}: "ecr-login",
+    {{ .privateEcrRegistry | quote }}: "ecr-login",
     {{- end }}
     "public.ecr.aws": "ecr-login"
   }
