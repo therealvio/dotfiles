@@ -1,0 +1,5 @@
+# Tools for working on this repo. chezmoi ignores this file, so it does not
+# clash with the global mise config in dot_config/mise/.
+[tools]
+go = "1.26.0"
+just = "1.59.0"

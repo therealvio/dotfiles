@@ -3,3 +3,4 @@ README.md
 dot_claude/skills/README.md
 justfile
 tests/
+mise.toml
