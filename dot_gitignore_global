@@ -60,3 +60,7 @@ Thumbs.db
 .claude/cc-writes
 **/.claude/.cc-writes/
 **/.claude/tmp
+
+# pi
+######################
+.pi/plans
