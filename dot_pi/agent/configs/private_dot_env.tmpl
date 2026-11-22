@@ -2,7 +2,11 @@
 # pi runs agent commands in a sandbox that blocks the macOS keychain.
 # git and gh read GH_TOKEN before the keychain, so this PAT gives them access.
 # The PAT has a limited scope, so it is safe to keep on disk. Rotate it in 1Password, then run `chezmoi apply`.
+{{- if eq .workDevice true }}
+GH_TOKEN={{ onepasswordRead "op://Employee/github-pi-agent-pat/password" }}
+{{- else }}
 GH_TOKEN={{ onepasswordRead "op://Private/Github/pi-agent-pat" }}
+{{- end }}
 
 # Context7 MCP API key. Without it, Context7 applies low anonymous rate limits.
-CONTEXT7_API_KEY={{ onepasswordRead "op://Private/context7/credential" }}
+CONTEXT7_API_KEY={{ onepasswordRead (printf "op://%s/context7/credential" (ternary "Employee" "Private" .workDevice)) }}
