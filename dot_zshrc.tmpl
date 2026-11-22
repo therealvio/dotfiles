@@ -210,20 +210,6 @@ function gh() {
     fi
 }
 
-# pi runs agent commands in a sandbox that blocks the macOS keychain.
-# git and gh read GH_TOKEN before the keychain, so give pi a PAT here.
-# Only the pi process gets GH_TOKEN. Do not export it.
-# If op fails (1Password locked, item missing), pi starts without GH_TOKEN.
-function pi() {
-    local token
-    if token="$(op read 'op://Private/Github/pi-agent-pat' 2>/dev/null)" && [[ -n "$token" ]]; then
-        GH_TOKEN="$token" command pi "$@"
-    else
-        print -u2 "pi: op read failed; starting pi without GH_TOKEN"
-        command pi "$@"
-    fi
-}
-
 # Worktrunk
 # `wt shellenv` is not in v0.77; fall back to `wt config shell init` until it is.
 if command -v wt >/dev/null 2>&1; then

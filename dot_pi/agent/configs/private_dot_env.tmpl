@@ -1,0 +1,5 @@
+# Loaded into pi by the pikit env-loader extension. A value set in the shell wins over this file.
+# pi runs agent commands in a sandbox that blocks the macOS keychain.
+# git and gh read GH_TOKEN before the keychain, so this PAT gives them access.
+# The PAT has a limited scope, so it is safe to keep on disk. Rotate it in 1Password, then run `chezmoi apply`.
+GH_TOKEN={{ onepasswordRead "op://Private/Github/pi-agent-pat" }}
