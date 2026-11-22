@@ -239,6 +239,32 @@ if command -v direnv >/dev/null 2>&1; then
     add-zsh-hook chpwd _wt_direnv_autoallow
 fi
 
+# cmux: name the tab after the git repo of the current directory.
+# The name comes from the origin remote URL, because the local folder name
+# can differ (for example, chezmoi clones dotfiles to ~/.local/share/chezmoi).
+# Without origin, the main repo folder name is used. The common git dir
+# resolves a worktree to that folder.
+# Outside a repo, the tab gets its default title back.
+# Target the tab with --surface: cmux sets $CMUX_TAB_ID to the workspace ID,
+# so the default target fails with "Tab not found".
+if [[ -n $CMUX_SURFACE_ID ]] && command -v cmux >/dev/null 2>&1; then
+    _cmux_repo_title() {
+        local common url name
+        if common=$(command git rev-parse --path-format=absolute --git-common-dir 2>/dev/null); then
+            url=$(command git remote get-url origin 2>/dev/null)
+            # Strip ".git", then keep the text after the last "/" or ":".
+            # This handles both https:// and git@host: URLs.
+            name=${${url%.git}##*[/:]}
+            cmux rename-tab --surface "$CMUX_SURFACE_ID" "${name:-${common:h:t}}" >/dev/null 2>&1
+        else
+            cmux tab-action --surface "$CMUX_SURFACE_ID" --action clear-name >/dev/null 2>&1
+        fi
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook chpwd _cmux_repo_title
+    _cmux_repo_title
+fi
+
 {{ if .workDevice -}}
 # Devbox
 eval "$(devbox global shellenv)"
