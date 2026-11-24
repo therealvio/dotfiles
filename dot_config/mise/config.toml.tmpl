@@ -7,7 +7,8 @@ node = "24.22"
 ruby = { version = "3.3.14", postinstall = "gem update --system" }
 "gem:try-cli" = "1.10.1"
 "github:jamestelfer/imds-broker" = "0.4.0"
-"github:jamestelfer/sandy" = "0.7.0"
+# Re-sign sandy locally. Without this, macOS (MDM policy) can block the unsigned binary.
+"github:jamestelfer/sandy" = { version = "0.14.1", postinstall = 'xattr -dr com.apple.quarantine "${MISE_TOOL_INSTALL_PATH}" 2>/dev/null; codesign --remove-signature "${MISE_TOOL_INSTALL_PATH}/sandy" 2>/dev/null; codesign -s - --force "${MISE_TOOL_INSTALL_PATH}/sandy"' }
 
 [settings]
 idiomatic_version_file_enable_tools = []
