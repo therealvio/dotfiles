@@ -63,7 +63,8 @@ Thumbs.db
 
 # pi
 ######################
-.pi/plans
-.pi/handoffs
-.pi/artifacts
 .pi/.env.private
+.pi/artifacts
+.pi/handoffs
+.pi/plans
+.pi/tmp
